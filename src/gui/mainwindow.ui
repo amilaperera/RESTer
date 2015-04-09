@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>935</width>
-    <height>500</height>
+    <width>787</width>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -103,9 +103,27 @@
      </layout>
     </item>
     <item row="2" column="0" colspan="3">
-     <widget class="QSplitter" name="splitter_2">
+     <widget class="QSplitter" name="tabWidgetHistoryVSplitter">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
+      </property>
+      <property name="opaqueResize">
+       <bool>false</bool>
+      </property>
+      <property name="handleWidth">
+       <number>1</number>
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
@@ -117,15 +135,39 @@
         </attribute>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
-          <widget class="QSplitter" name="splitter">
+          <widget class="QSplitter" name="rqstHeaderBodyHSplitter">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="opaqueResize">
+            <bool>false</bool>
+           </property>
+           <property name="handleWidth">
+            <number>1</number>
            </property>
            <widget class="QGroupBox" name="groupBox">
             <property name="title">
              <string>Headers</string>
             </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
             <layout class="QGridLayout" name="gridLayout_4">
+             <property name="leftMargin">
+              <number>3</number>
+             </property>
+             <property name="topMargin">
+              <number>3</number>
+             </property>
+             <property name="rightMargin">
+              <number>3</number>
+             </property>
+             <property name="bottomMargin">
+              <number>3</number>
+             </property>
+             <property name="spacing">
+              <number>3</number>
+             </property>
              <item row="0" column="0">
               <widget class="QTableWidget" name="tableWidget">
                <attribute name="horizontalHeaderStretchLastSection">
@@ -150,10 +192,25 @@
              <string>Body</string>
             </property>
             <layout class="QGridLayout" name="gridLayout">
+             <property name="leftMargin">
+              <number>3</number>
+             </property>
+             <property name="topMargin">
+              <number>3</number>
+             </property>
+             <property name="rightMargin">
+              <number>3</number>
+             </property>
+             <property name="bottomMargin">
+              <number>3</number>
+             </property>
+             <property name="spacing">
+              <number>3</number>
+             </property>
              <item row="0" column="0">
               <widget class="QTabWidget" name="tabWidget_3">
                <property name="currentIndex">
-                <number>2</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="tab_3">
                 <attribute name="title">
@@ -185,8 +242,23 @@
        </widget>
       </widget>
       <widget class="QTabWidget" name="tabWidget_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="tabPosition">
+        <enum>QTabWidget::South</enum>
+       </property>
+       <property name="tabShape">
+        <enum>QTabWidget::Rounded</enum>
+       </property>
        <property name="currentIndex">
         <number>0</number>
+       </property>
+       <property name="elideMode">
+        <enum>Qt::ElideNone</enum>
        </property>
        <widget class="QWidget" name="tab_4">
         <attribute name="title">
@@ -203,7 +275,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>935</width>
+     <width>787</width>
      <height>19</height>
     </rect>
    </property>

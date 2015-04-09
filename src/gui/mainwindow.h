@@ -16,6 +16,9 @@ public:
     ~MainWindow();
 
 private:
+    void setSplitterSizes();
+
+private:
     Ui::MainWindow *ui;
 };
 
