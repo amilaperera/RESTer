@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/arrow-right-double-2.png</file>
+        <file>icons/edit-clear-3.png</file>
+    </qresource>
+</RCC>
