@@ -17,5 +17,6 @@ MainWindow::~MainWindow()
 void MainWindow::setSplitterSizes()
 {
     ui->rqstHeaderBodyHSplitter->setSizes(QList<int> () << 100 << 200);
+    ui->respHeaderBodyHSplitter->setSizes(QList<int> () << 100 << 200);
     ui->tabWidgetHistoryVSplitter->setSizes(QList<int> () << 200 << 75);
 }
