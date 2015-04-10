@@ -74,7 +74,7 @@
        <widget class="QLineEdit" name="urlLineEdit"/>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton">
+       <widget class="QToolButton" name="sendToolBtn">
         <property name="text">
          <string/>
         </property>
@@ -88,18 +88,6 @@
     </item>
     <item row="1" column="0">
      <widget class="QSplitter" name="tabWidgetHistoryVSplitter">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="lineWidth">
-       <number>1</number>
-      </property>
-      <property name="midLineWidth">
-       <number>0</number>
-      </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -152,7 +140,7 @@
              <property name="spacing">
               <number>3</number>
              </property>
-             <item row="0" column="0">
+             <item row="0" column="0" colspan="5">
               <widget class="QTableWidget" name="rqstHeadersTableWidget">
                <attribute name="horizontalHeaderStretchLastSection">
                 <bool>true</bool>
@@ -167,6 +155,63 @@
                  <string>Value</string>
                 </property>
                </column>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QToolButton" name="addHeaderToolBtn">
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources.qrc">
+                 <normaloff>:/icons/resources/icons/list-add-5.ico</normaloff>:/icons/resources/icons/list-add-5.ico</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QToolButton" name="removeHeaderToolBtn">
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources.qrc">
+                 <normaloff>:/icons/resources/icons/list-remove-5.ico</normaloff>:/icons/resources/icons/list-remove-5.ico</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>315</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="1" column="3">
+              <widget class="QToolButton" name="moveUpHeaderToolBtn">
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources.qrc">
+                 <normaloff>:/icons/resources/icons/go-up-4.ico</normaloff>:/icons/resources/icons/go-up-4.ico</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="4">
+              <widget class="QToolButton" name="moveDownHeaderToolBtn">
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources.qrc">
+                 <normaloff>:/icons/resources/icons/go-down-4.ico</normaloff>:/icons/resources/icons/go-down-4.ico</iconset>
+               </property>
               </widget>
              </item>
             </layout>
@@ -309,12 +354,12 @@
                </widget>
                <widget class="QWidget" name="respFormTab">
                 <attribute name="title">
-                 <string>Form</string>
+                 <string>Parsed</string>
                 </attribute>
                </widget>
                <widget class="QWidget" name="respFilesTab">
                 <attribute name="title">
-                 <string>Files</string>
+                 <string>Web</string>
                 </attribute>
                </widget>
               </widget>
@@ -349,6 +394,36 @@
         <attribute name="title">
          <string>History</string>
         </attribute>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <widget class="QTableWidget" name="tableWidget">
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="showGrid">
+            <bool>false</bool>
+           </property>
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>Time</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Request</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>URL</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>

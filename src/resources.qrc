@@ -3,5 +3,9 @@
         <file>resources/icons/dialog-cancel-4.png</file>
         <file>resources/icons/dialog-ok-2.png</file>
         <file>resources/icons/arrow-right-double-2.ico</file>
+        <file>resources/icons/go-down-4.ico</file>
+        <file>resources/icons/go-up-4.ico</file>
+        <file>resources/icons/list-add-5.ico</file>
+        <file>resources/icons/list-remove-5.ico</file>
     </qresource>
 </RCC>
