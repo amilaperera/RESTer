@@ -7,12 +7,15 @@ class HTTPHeader : public QObject
 {
     Q_OBJECT
 public:
-    explicit HTTPHeader(QObject *parent = 0);
+    explicit HTTPHeader(QString n, QString v, QObject *parent = 0);
     ~HTTPHeader();
 
-signals:
+    QString GetName();
+    QString GetValue();
 
-public slots:
+private:
+    QString name;
+    QString value;
 };
 
 #endif // HTTPHEADER_H
