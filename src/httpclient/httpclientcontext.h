@@ -12,9 +12,14 @@ public:
     explicit HTTPClientContext(QObject *parent = 0);
     ~HTTPClientContext();
 
-signals:
+    void AddHeader(const HTTPHeader *h);
+    const QList<HTTPHeader *> *GetHeaderList() const;
+    void SetBody(const QByteArray &b);
+    const QByteArray *GetBody() const;
 
-public slots:
+private:
+    QList<HTTPHeader *> headerList;
+    QByteArray body;
 };
 
 #endif // HTTPCLIENTCONTEXT_H

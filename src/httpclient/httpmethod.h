@@ -10,9 +10,6 @@ public:
     explicit HTTPMethod(QObject *parent = 0);
     ~HTTPMethod();
 
-signals:
-
-public slots:
 };
 
 #endif // HTTPMETHOD_H

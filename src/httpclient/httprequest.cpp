@@ -10,3 +10,7 @@ HTTPRequest::~HTTPRequest()
 
 }
 
+void HTTPRequest::SetMethod(HTTPMethod *m)
+{
+    method = m;
+}
