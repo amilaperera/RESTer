@@ -1,9 +1,9 @@
 #include "httpheader.h"
 
-HTTPHeader::HTTPHeader(QString n, QString v, QObject *parent) : QObject(parent)
+HTTPHeader::HTTPHeader(QString n, QString v, QObject *parent) :
+    QObject(parent), name {n}, value {v}
 {
-    name = n;
-    value = v;
+
 }
 
 HTTPHeader::~HTTPHeader()
