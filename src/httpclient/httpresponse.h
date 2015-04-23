@@ -1,9 +1,9 @@
 #ifndef HTTPRESPONSE_H
 #define HTTPRESPONSE_H
 
-#include "httpclientcontext.h"
+#include "httpmessage.h"
 
-class HTTPResponse : public HTTPClientContext
+class HTTPResponse : public HTTPMessage
 {
 public:
     HTTPResponse();

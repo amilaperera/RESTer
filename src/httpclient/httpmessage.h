@@ -1,16 +1,16 @@
-#ifndef HTTPCLIENTCONTEXT_H
-#define HTTPCLIENTCONTEXT_H
+#ifndef HTTPMESSAGE_H
+#define HTTPMESSAGE_H
 
 #include <QObject>
 #include <QList>
 #include "httpheader.h"
 
-class HTTPClientContext : public QObject
+class HTTPMessage : public QObject
 {
     Q_OBJECT
 public:
-    explicit HTTPClientContext(QObject *parent = 0);
-    ~HTTPClientContext();
+    explicit HTTPMessage(QObject *parent = 0);
+    ~HTTPMessage();
 
     void AddHeader(const HTTPHeader *h);
     const QList<HTTPHeader *> *GetHeaderList() const;
@@ -22,4 +22,4 @@ private:
     QByteArray body;
 };
 
-#endif // HTTPCLIENTCONTEXT_H
+#endif // HTTPMESSAGE_H
