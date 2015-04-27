@@ -18,10 +18,13 @@ public:
 private slots:
     void on_sendToolBtn_clicked();
 
+    void on_addHeaderToolBtn_clicked();
+
 private:
     void setSplitterSizes();
     bool checkBeforeSend(QString &errStr);
     bool sendRequest();
+    bool isPrevRowEmpty(int row);
 
 private:
     Ui::MainWindow *ui;

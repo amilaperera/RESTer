@@ -40,6 +40,15 @@ bool MainWindow::sendRequest()
     return true;
 }
 
+bool MainWindow::isPrevRowEmpty(int row)
+{
+    if (row > 0) {
+        QTableWidgetItem *item0 = ui->rqstHeadersTableWidget->item(row - 1, 0);
+        QTableWidgetItem *item1 = ui->rqstHeadersTableWidget->item(row - 1, 1);
+    }
+    return false;
+}
+
 void MainWindow::on_sendToolBtn_clicked()
 {
     QString errStr;
@@ -49,4 +58,11 @@ void MainWindow::on_sendToolBtn_clicked()
     } else {
         (void) sendRequest();
     }
+}
+
+void MainWindow::on_addHeaderToolBtn_clicked()
+{
+    int row = ui->rqstHeadersTableWidget->rowCount();
+    if (!isPrevRowEmpty(row))
+        ui->rqstHeadersTableWidget->insertRow(row);
 }
