@@ -15,23 +15,9 @@ CONFIG += c++11
 
 
 SOURCES += main.cpp\
-    gui/mainwindow.cpp \
-    httpclient/httpheader.cpp \
-    httpclient/httprequest.cpp \
-    httpclient/httpresponse.cpp \
-    httpclient/httpmethod.cpp \
-    httpclient/httpget.cpp \
-    httpclient/httpmessage.cpp \
-    httpclient/restexecutor.cpp
+    gui/mainwindow.cpp
 
-HEADERS  += gui/mainwindow.h \
-    httpclient/httpheader.h \
-    httpclient/httprequest.h \
-    httpclient/httpresponse.h \
-    httpclient/httpmethod.h \
-    httpclient/httpget.h \
-    httpclient/httpmessage.h \
-    httpclient/restexecutor.h
+HEADERS  += gui/mainwindow.h
 
 FORMS    += gui/mainwindow.ui
 
