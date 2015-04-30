@@ -3,12 +3,16 @@
 #include <QDebug>
 #include <QMessageBox>
 
+#define HEADER_NAME_COLUMN                       0
+#define HEADER_VALUE_COLUMN                      1
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     setSplitterSizes();
+    setRqstHeadersTableWidgetProperties();
 }
 
 MainWindow::~MainWindow()
@@ -21,6 +25,11 @@ void MainWindow::setSplitterSizes()
     ui->rqstHeaderBodyHSplitter->setSizes(QList<int> () << 100 << 200);
     ui->respHeaderBodyHSplitter->setSizes(QList<int> () << 100 << 200);
     ui->tabWidgetHistoryVSplitter->setSizes(QList<int> () << 200 << 75);
+}
+
+void MainWindow::setRqstHeadersTableWidgetProperties()
+{
+    ui->rqstHeadersTableWidget->verticalHeader()->setVisible(false);
 }
 
 bool MainWindow::checkBeforeSend(QString &errStr)
@@ -43,8 +52,10 @@ bool MainWindow::sendRequest()
 bool MainWindow::isPrevRowEmpty(int row)
 {
     if (row > 0) {
-        QTableWidgetItem *hName = ui->rqstHeadersTableWidget->item(row - 1, 0);
-        QTableWidgetItem *hValue = ui->rqstHeadersTableWidget->item(row - 1, 1);
+        QTableWidgetItem *hName = ui->rqstHeadersTableWidget->item(row - 1,
+                                                                   HEADER_NAME_COLUMN);
+        QTableWidgetItem *hValue = ui->rqstHeadersTableWidget->item(row - 1,
+                                                                    HEADER_VALUE_COLUMN);
         // we check if the header name of the previous header is not written
         // or if it is empty
         if (!hName || (hName && hName->text().trimmed().isEmpty())) {
@@ -70,8 +81,10 @@ void MainWindow::on_sendToolBtn_clicked()
 void MainWindow::on_addHeaderToolBtn_clicked()
 {
     int row = ui->rqstHeadersTableWidget->rowCount();
-    if (!isPrevRowEmpty(row))
+    if (!isPrevRowEmpty(row)) {
         ui->rqstHeadersTableWidget->insertRow(row);
+        ui->rqstHeadersTableWidget->setRowHeight(row, 20);
+    }
 }
 
 void MainWindow::on_rqstHeadersTableWidget_itemChanged(QTableWidgetItem *item)

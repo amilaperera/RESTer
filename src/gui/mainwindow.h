@@ -25,6 +25,7 @@ private slots:
 
 private:
     void setSplitterSizes();
+    void setRqstHeadersTableWidgetProperties();
     bool checkBeforeSend(QString &errStr);
     bool sendRequest();
     bool isPrevRowEmpty(int row);
