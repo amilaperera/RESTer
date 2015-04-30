@@ -43,8 +43,15 @@ bool MainWindow::sendRequest()
 bool MainWindow::isPrevRowEmpty(int row)
 {
     if (row > 0) {
-        QTableWidgetItem *item0 = ui->rqstHeadersTableWidget->item(row - 1, 0);
-        QTableWidgetItem *item1 = ui->rqstHeadersTableWidget->item(row - 1, 1);
+        QTableWidgetItem *hName = ui->rqstHeadersTableWidget->item(row - 1, 0);
+        QTableWidgetItem *hValue = ui->rqstHeadersTableWidget->item(row - 1, 1);
+        // we check if the header name of the previous header is not written
+        // or if it is empty
+        if (!hName || (hName && hName->text().trimmed().isEmpty())) {
+            if (hValue)
+                hValue->setText("");
+            return true;
+        }
     }
     return false;
 }
