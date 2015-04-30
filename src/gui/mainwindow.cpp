@@ -92,3 +92,13 @@ void MainWindow::on_rqstHeadersTableWidget_itemChanged(QTableWidgetItem *item)
     if (item)
         item->setText(item->text().trimmed());
 }
+
+void MainWindow::on_removeHeaderToolBtn_clicked()
+{
+    QItemSelectionModel *selectionModel = ui->rqstHeadersTableWidget->selectionModel();
+    QModelIndex currentIndex = ui->rqstHeadersTableWidget->currentIndex();
+    bool isCurrentItemSelected = selectionModel->isSelected(currentIndex);
+
+    if (isCurrentItemSelected && currentIndex.isValid())
+            ui->rqstHeadersTableWidget->removeRow(ui->rqstHeadersTableWidget->currentRow());
+}

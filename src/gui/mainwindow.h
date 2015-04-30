@@ -23,6 +23,8 @@ private slots:
 
     void on_rqstHeadersTableWidget_itemChanged(QTableWidgetItem *item);
 
+    void on_removeHeaderToolBtn_clicked();
+
 private:
     void setSplitterSizes();
     void setRqstHeadersTableWidgetProperties();
