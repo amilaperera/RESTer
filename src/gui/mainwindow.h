@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTableWidget>
 
 namespace Ui {
 class MainWindow;
@@ -20,8 +21,11 @@ private slots:
 
     void on_addHeaderToolBtn_clicked();
 
+    void on_rqstHeadersTableWidget_itemChanged(QTableWidgetItem *item);
+
 private:
     void setSplitterSizes();
+    void setRqstHeadersTableWidgetProperties();
     bool checkBeforeSend(QString &errStr);
     bool sendRequest();
     bool isPrevRowEmpty(int row);
