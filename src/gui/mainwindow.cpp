@@ -73,3 +73,9 @@ void MainWindow::on_addHeaderToolBtn_clicked()
     if (!isPrevRowEmpty(row))
         ui->rqstHeadersTableWidget->insertRow(row);
 }
+
+void MainWindow::on_rqstHeadersTableWidget_itemChanged(QTableWidgetItem *item)
+{
+    if (item)
+        item->setText(item->text().trimmed());
+}
