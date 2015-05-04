@@ -142,6 +142,9 @@
              </property>
              <item row="0" column="0" colspan="5">
               <widget class="QTableWidget" name="rqstHeadersTableWidget">
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
                <attribute name="horizontalHeaderStretchLastSection">
                 <bool>true</bool>
                </attribute>
