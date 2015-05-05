@@ -67,6 +67,58 @@ bool MainWindow::isPrevRowEmpty(int row)
     return false;
 }
 
+QList<QTableWidgetItem *> MainWindow::takeRow(QTableWidget *tblWidget, int row)
+{
+    QList<QTableWidgetItem *> rowItems;
+    for (int col = 0; col < tblWidget->columnCount(); ++col)
+        rowItems << tblWidget->takeItem(row, col);
+
+    return rowItems;
+}
+
+void MainWindow::setRow(QTableWidget *tblWidget, int row, QList<QTableWidgetItem *> &rowItems)
+{
+    for (int col = 0; col < tblWidget->columnCount(); ++col)
+        tblWidget->setItem(row, col, rowItems.at(col));
+}
+
+// TODO: row moving when multiple rows are selected
+void MainWindow::moveRow(QTableWidget *tblWidget, MoveDirection dir)
+{
+    QItemSelectionModel *selectionModel = ui->rqstHeadersTableWidget->selectionModel();
+    QModelIndex currentIndex = ui->rqstHeadersTableWidget->currentIndex();
+    bool isCurrentItemSelected = selectionModel->isSelected(currentIndex);
+
+    if (isCurrentItemSelected && currentIndex.isValid()) {
+        int sourceRow = tblWidget->row(tblWidget->selectedItems().at(0));
+        if (canMoveRow(tblWidget, sourceRow, dir)) {
+            int destRow = dir == MoveDirection::Up ? sourceRow - 1 : sourceRow + 1;
+
+            QList<QTableWidgetItem *> sourceItems = takeRow(tblWidget, sourceRow);
+            QList<QTableWidgetItem *> destItems = takeRow(tblWidget, destRow);
+
+            setRow(tblWidget, sourceRow, destItems);
+            setRow(tblWidget, destRow, sourceItems);
+
+            tblWidget->setCurrentCell(destRow, 0);
+        }
+    }
+}
+
+bool MainWindow::canMoveRow(QTableWidget *tblWidget, int currentIndex, MoveDirection dir)
+{
+    // if moving up when @ 0th row ||
+    //    moving down when @ last row ||
+    //    current row goes out of range of the current table
+    // then, we can't move
+    if ((dir == MoveDirection::Up && currentIndex == 0) ||
+        (dir == MoveDirection::Down && currentIndex == tblWidget->rowCount() - 1) ||
+        (currentIndex < 0 || currentIndex > tblWidget->rowCount() - 1))
+        return false;
+
+    return true;
+}
+
 void MainWindow::on_sendToolBtn_clicked()
 {
     QString errStr;
@@ -101,4 +153,14 @@ void MainWindow::on_removeHeaderToolBtn_clicked()
 
     if (isCurrentItemSelected && currentIndex.isValid())
             ui->rqstHeadersTableWidget->removeRow(ui->rqstHeadersTableWidget->currentRow());
+}
+
+void MainWindow::on_moveUpHeaderToolBtn_clicked()
+{
+    moveRow(ui->rqstHeadersTableWidget, MoveDirection::Up);
+}
+
+void MainWindow::on_moveDownHeaderToolBtn_clicked()
+{
+    moveRow(ui->rqstHeadersTableWidget, MoveDirection::Down);
 }
